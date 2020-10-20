@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="container-fluid">
-      <div class="copyright">
+      <div class="copyright" >
         &copy; Filly Coders
         <script>
           document.write(new Date().getFullYear())

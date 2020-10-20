@@ -21,9 +21,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/registerforms', 'PagesController@getRegisterForms')->name('forms');
+Route::get('/homepage', 'PagesController@getHomePage')->name('homepage');
 
-Route::get('/loginforms', 'PagesController@getLoginForms')->name('loginforms');
+Route::get('/music', 'PagesController@getMusicPage')->name('musicpage');
+
+Route::get('/shop', 'PagesController@getShopPage')->name('shoppage');
+
+Route::get('/subscribe', 'PagesController@getSubscribePage')->name('subscribepage');
+
+
+
+
 
 
 

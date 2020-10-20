@@ -6,13 +6,30 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function getRegisterForms()
+    public function __construct()
     {
-        return view('pages.registerforms');
+        $this->middleware('auth');
     }
 
-    public function getLoginForms()
+
+
+    public function getHomePage()
     {
-        return view('pages.loginforms');
+        return view('pages.homepage');
+    }
+
+    public function getMusicPage()
+    {
+        return view('pages.musicpage');
+    }
+
+    public function getShopPage()
+    {
+        return view('pages.shoppage');
+    }
+
+    public function getSubscribePage()
+    {
+        return view('pages.subscribe');
     }
 }
