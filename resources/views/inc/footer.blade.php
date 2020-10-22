@@ -4,7 +4,7 @@
         &copy; Filly Coders
         <script>
           document.write(new Date().getFullYear())
-        </script>, made with <i class="material-icons">favorite</i>
+        </script>
       </div>
     </div>
   </footer>
