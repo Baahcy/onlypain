@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Shop;
+use App\Subscriber;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function getDashboard()
     {
-        return view('admin.dashboard');
+        $shops = Shop::get();
+        $subscribers = Subscriber::get();
+
+        return view('admin.dashboard')->with('shops', $shops)->with('subscribers',$subscribers);
     }
     /**
      * Display a listing of the resource.

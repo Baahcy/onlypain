@@ -10,7 +10,8 @@ class SubscriberController extends Controller
 
     public function getSubscriber()
     {
-        return view('admin.subscriber');
+        $subscribers = Subscriber::get();
+        return view('admin.subscriber')->with('subscribers', $subscribers);
     }
     /**
      * Display a listing of the resource.
