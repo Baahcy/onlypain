@@ -31,10 +31,15 @@
         @include('admin/navbar.newsletter')
     @elseif(Request::is('admin-dashboard'))
         @include('admin/navbar.dashboard')
+    @elseif(Request::is('admin-shop/create'))
+        @include('admin/navbar.shop')
+    {{-- @elseif(Request::is('admin-shop/{{ $shop->id }}/edit'))
+        @include('admin/navbar.shop') --}}
     @endif
     {{-- @include('admin/navbar.subscriber') --}}
 
     <div class="content">
+        @include('inc.message')
         <div>
             @yield('content')
         </div>

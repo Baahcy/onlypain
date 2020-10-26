@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Shop;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -25,7 +26,8 @@ class PagesController extends Controller
 
     public function getShopPage()
     {
-        return view('pages.shoppage');
+        $shops = Shop::get();
+        return view('pages.shoppage')->with('shops', $shops);
     }
 
     public function getSubscribePage()

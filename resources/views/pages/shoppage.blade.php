@@ -21,28 +21,32 @@
     <link href="{{ asset('assets/css/material-dashboard.css?v=2.1.2') }}" rel="stylesheet">
 
 </head>
+
 <body class=" container home">
     @include('inc.shopnavbar')
 
     <div class="container home">
-       <div class="row">
+        <div class="row">
+        @foreach ($shops as $shop)
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="../images/subs-bg.jpg" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item One</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
+                <a href="#"><img class="card-img-top" src="/storage/shop/{{$shop->image}}" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">{{$shop->title}}</a>
+                    </h4>
+                    <h5>${{$shop->price}}</h5>
+                    <p class="card-text">{{$shop->description}}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
             </div>
-          </div>
+        </div>
+        @endforeach
 
-          <div class="col-lg-4 col-md-6 mb-4">
+
+            {{-- <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="../images/subs-bg.jpg" alt=""></a>
               <div class="card-body">
@@ -56,9 +60,9 @@
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
-          </div>
+          </div> --}}
 
-          <div class="col-lg-4 col-md-6 mb-4">
+            {{-- <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="../images/subs-bg.jpg" alt=""></a>
               <div class="card-body">
@@ -72,8 +76,10 @@
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
-          </div>
-       </div>
+          </div> --}}
+
+
+        </div>
     </div>
 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Shop;
 use App\Subscriber;
 use Illuminate\Database\Seeder;
 
@@ -15,5 +16,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserSeeder::class);
 
         factory(Subscriber::class, 10)->create();
+        factory(Shop::class, 10)->create();
     }
 }

@@ -8,19 +8,21 @@ use Illuminate\Http\Request;
 class ShopController extends Controller
 {
 
-    public function getShop()
-    {
-        return view('admin.shop');
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // public function getShop()
+    // {
+    //     $shops = Shop::get();
+
+    //     return view('shop.index')->with('shops', $shops);
+    // }
+
     public function index()
     {
-        //
+        $shops = Shop::get();
+
+        return view('shop.index')->with('shops', $shops);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -29,7 +31,7 @@ class ShopController extends Controller
      */
     public function create()
     {
-        //
+        return view('shop.create');
     }
 
     /**
@@ -40,7 +42,37 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(
+            $request,
+            [
+                'title' => 'required',
+                'price' => 'required',
+                'description' => 'required',
+                'image' => ''
+
+            ]
+        );
+
+        $filenameWithExtension = $request->file('image')->getClientOriginalName();
+
+        $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+
+        $extension = $request->file('image')->getClientOriginalExtension();
+
+        $filenameToStore = $filename . '_' . time() . '.' . $extension;
+
+        $path = $request->file('image')->storeAs('public/shop', $filenameToStore);
+
+
+        $shop = new Shop();
+        $shop->title = $request->title;
+        $shop->price = $request->price;
+        $shop->image = $filenameToStore;
+        $shop->description = $request->description;
+
+        $shop->save();
+
+        return redirect('/admin-shop')->with('success', 'Shop item has been added successfully');
     }
 
     /**
@@ -60,9 +92,11 @@ class ShopController extends Controller
      * @param  \App\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function edit(Shop $shop)
+    public function edit($id)
     {
-        //
+        $shops = Shop::find($id);
+
+        return view('shop.edit')->with('shops', $shops);
     }
 
     /**
@@ -72,9 +106,39 @@ class ShopController extends Controller
      * @param  \App\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Shop $shop)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate(
+            $request,
+            [
+                'title' => 'required',
+                'price' => 'required',
+                'description' => 'required',
+                'image' => 'required'
+
+            ]
+        );
+
+        $filenameWithExtension = $request->file('image')->getClientOriginalName();
+
+        $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+
+        $extension = $request->file('image')->getClientOriginalExtension();
+
+        $filenameToStore = $filename . '_' . time() . '.' . $extension;
+
+        $path = $request->file('image')->storeAs('public/shop', $filenameToStore);
+
+
+        $shop = Shop::find($id);
+        $shop->title = $request->title;
+        $shop->price = $request->price;
+        $shop->image = $filenameToStore;
+        $shop->description = $request->description;
+
+        $shop->save();
+
+        return redirect('/admin-shop')->with('success', 'Shop item has been Updated successfully');
     }
 
     /**
@@ -83,8 +147,10 @@ class ShopController extends Controller
      * @param  \App\Shop  $shop
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Shop $shop)
+    public function destroy($id)
     {
-        //
+        $shops = Shop::find($id);
+        $shops->delete();
+        return redirect('/admin-shop')->with('success', 'Shop item has been Deleted ');
     }
 }
