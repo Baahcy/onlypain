@@ -21,59 +21,35 @@
     <link href="{{ asset('assets/css/material-dashboard.css?v=2.1.2') }}" rel="stylesheet">
 
 </head>
+
 <body class=" container home">
     @include('inc.musicnavbar')
 
     <div class="container home">
-        <div class="container">
+        <div class="row">
+            @foreach ($musics as $music)
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card ">
+                    <a href="#"><img class="card-img-top" src="/storage/music/{{$music->image}}" alt=""></a>
+                    <div class="card-body">
+                        <audio controls>
+                            <source src="../storage/mp3/{{$music->music}}" type="audio/ogg">
+                            <source src="../mp3/{{$music->music}}" type="audio/mpeg">
+                        </audio>
+                        <h4 class="card-title">
+                            <a href="#">{{$music->title}}</a>
+                        </h4>
+                        <h5>{{$music->music}}</h5>
+                        <p class="card-text">{{$music->artist}}</p>
+                    </div>
 
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 ">
-                <div class="mb-3 pics animation all 2">
-                    <img class="img-fluid" src="../images/music3.jpg" alt="Card image cap" width="500" height="400">
                 </div>
-                  <div class="btn-group">
-                    <audio controls>
-                        <source src="#" type="audio/ogg">
-                        <source src="#" type="audio/mpeg">
-                      </audio>
-                  </div>
-              </div>
             </div>
+            @endforeach
 
 
-            <div class="col-md-4">
-                <div class="card mb-4 ">
-                    <div class="mb-3 pics animation all 2">
-                        <img class="img-fluid" src="../images/music.jpg" alt="Card image cap" width="600" height="600">
-                      </div>
-                      <div class="btn-group">
-                        <audio controls>
-                            <source src="#" type="audio/ogg">
-                            <source src="" type="audio/mpeg">
-                          </audio>
-                      </div>
-                  </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4 ">
-                    <div class="mb-3 pics animation all 2">
-                        <img class="img-fluid" src="../images/music3.jpg" alt="Card image cap" width="600" height="600">
-                      </div>
-                      <div class="btn-group">
-                        <audio controls>
-                            <source src="#" type="audio/ogg">
-                            <source src="#" type="audio/mpeg">
-                          </audio>
-                      </div>
-                  </div>
-            </div>
-
-          </div>
         </div>
-      </div>
+    </div>
 
 
     @include('inc.footer')

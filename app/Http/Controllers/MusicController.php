@@ -9,7 +9,9 @@ class MusicController extends Controller
 {
     public function getMusic()
     {
-        return view('admin.music');
+        $musics = Music::get();
+
+        return view('admin.music')->with('musics', $musics);
     }
     /**
      * Display a listing of the resource.
@@ -18,7 +20,9 @@ class MusicController extends Controller
      */
     public function index()
     {
-        //
+        $musics = Music::get();
+
+        return view('music.index')->with('musics', $musics);
     }
 
     /**
@@ -28,7 +32,7 @@ class MusicController extends Controller
      */
     public function create()
     {
-        //
+        return view('music.create');
     }
 
     /**
@@ -39,7 +43,54 @@ class MusicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(
+            $request,
+            [
+                'title' => 'required',
+                'music' => 'required',
+                'artist' => 'required',
+                'image' => ''
+
+            ]
+        );
+
+        // Image
+        $filenameWithExtension = $request->file('image')->getClientOriginalName();
+
+        $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+
+        $extension = $request->file('image')->getClientOriginalExtension();
+
+        $filenameToStore = $filename . '_' . time() . '.' . $extension;
+
+        $path = $request->file('image')->storeAs('public/music', $filenameToStore);
+
+
+        // Music
+        $filenameWithExtension = $request->file('music')->getClientOriginalName();
+
+        $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+
+        $extension = $request->file('music')->getClientOriginalExtension();
+
+        $filenameToStoremusic = $filename . '_' . time() . '.' . $extension;
+
+        $path = $request->file('music')->storeAs('public/mp3', $filenameToStoremusic);
+
+
+
+        $music = new Music();
+
+        $music->title = $request->title;
+        $music->music = $filenameToStoremusic;
+        $music->artist = $request->artist;
+        $music->image = $filenameToStore;
+
+        // dd($music);
+
+        $music->save();
+
+        return redirect('/admin-music')->with('success', 'Music Details has been added successfully');
     }
 
     /**
@@ -59,9 +110,11 @@ class MusicController extends Controller
      * @param  \App\Music  $music
      * @return \Illuminate\Http\Response
      */
-    public function edit(Music $music)
+    public function edit($id)
     {
-        //
+        $musics = Music::find($id);
+
+        return view('music.edit')->with('musics', $musics);
     }
 
     /**
@@ -71,9 +124,53 @@ class MusicController extends Controller
      * @param  \App\Music  $music
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Music $music)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate(
+            $request,
+            [
+                'title' => 'required',
+                'music' => 'required',
+                'artist' => 'required',
+                'image' => ''
+
+            ]
+        );
+
+        //Image
+        $filenameWithExtension = $request->file('image')->getClientOriginalName();
+
+        $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+
+        $extension = $request->file('image')->getClientOriginalExtension();
+
+        $filenameToStore = $filename . '_' . time() . '.' . $extension;
+
+        $path = $request->file('image')->storeAs('public/music', $filenameToStore);
+
+        // Music
+        $filenameWithExtension = $request->file('music')->getClientOriginalName();
+
+        $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+
+        $extension = $request->file('music')->getClientOriginalExtension();
+
+        $filenameToStoremusic = $filename . '_' . time() . '.' . $extension;
+
+        $path = $request->file('music')->storeAs('public/mp3', $filenameToStoremusic);
+
+
+        $musics = Music::find($id);
+
+        $musics->title = $request->title;
+        $musics->music = $filenameToStoremusic;
+        $musics->artist = $request->artist;
+        $musics->image = $filenameToStore;
+
+
+        $musics->save();
+
+        return redirect('/admin-music')->with('success', 'Music Details has been updated successfully');
     }
 
     /**
@@ -82,8 +179,10 @@ class MusicController extends Controller
      * @param  \App\Music  $music
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Music $music)
+    public function destroy($id)
     {
-        //
+        $musics = Music::find($id);
+        $musics->delete();
+        return redirect('/admin-music')->with('success', 'Music Details has been Deleted ');
     }
 }

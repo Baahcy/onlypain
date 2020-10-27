@@ -12,7 +12,7 @@ class ShopController extends Controller
     // {
     //     $shops = Shop::get();
 
-    //     return view('shop.index')->with('shops', $shops);
+    //     return view('shop.del')->with('shops', $shops);
     // }
 
     public function index()

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Music;
 use App\Shop;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class PagesController extends Controller
 
     public function getMusicPage()
     {
-        return view('pages.musicpage');
+        $musics = Music::get();
+        return view('pages.musicpage')->with('musics', $musics);
     }
 
     public function getShopPage()

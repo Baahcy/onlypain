@@ -38,29 +38,16 @@ Route::get('/admin-dashboard', 'DashboardController@getDashboard')->name('dashbo
 
 
 // Subscriber Route and Controller
-
 Route::get('/admin-subscriber', 'SubscriberController@getSubscriber')->name('subscriber');
 
 
 // Shop Route and Controller
-
-// Route::get('/admin-shop', 'ShopController@getShop')->name('shop');
-
-// Route::post('/admin-shop/store', 'ShopController@store')->name('shop-store');
-
-// Route::get('/admin-shop/create', 'ShopController@create')->name('shop-create');
-
-// Route::get('admin-shop/{id}/edit','ShopController@edit')->name('shop-edit');
-
-Route::resource('/admin-shop', 'ShopController');
-
+Route::resource('admin-shop', 'ShopController');
 
 
 // Music Route and Controller
-
-Route::get('/admin-music', 'MusicController@getMusic')->name('music');
+Route::resource('/admin-music', 'MusicController');
 
 
 // Newsletter Route and Controller
-
 Route::get('/admin-newsletter', 'NewsletterController@getNewsletter')->name('newsletter');

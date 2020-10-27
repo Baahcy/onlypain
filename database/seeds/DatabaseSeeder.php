@@ -1,5 +1,6 @@
 <?php
 
+use App\Music;
 use App\Shop;
 use App\Subscriber;
 use Illuminate\Database\Seeder;
@@ -17,5 +18,6 @@ class DatabaseSeeder extends Seeder
 
         factory(Subscriber::class, 10)->create();
         factory(Shop::class, 10)->create();
+        factory(Music::class, 10)->create();
     }
 }
