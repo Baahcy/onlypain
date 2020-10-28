@@ -38,7 +38,7 @@ Route::get('/admin-dashboard', 'DashboardController@getDashboard')->name('dashbo
 
 
 // Subscriber Route and Controller
-Route::get('/admin-subscriber', 'SubscriberController@getSubscriber')->name('subscriber');
+Route::resource('/admin-subscriber', 'SubscriberController');
 
 
 // Shop Route and Controller

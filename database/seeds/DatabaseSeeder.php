@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UserSeeder::class);
 
-        factory(Subscriber::class, 10)->create();
+        factory(Subscriber::class, 2)->create();
         factory(Shop::class, 10)->create();
         factory(Music::class, 10)->create();
     }
