@@ -10,13 +10,13 @@
     </button>
     <div class="collapse navbar-collapse text-uppercase " id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-link" href="/shop">shop <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item ">
           <a class="nav-link" href="/music">music</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="/video">video</a>
         </li>
 

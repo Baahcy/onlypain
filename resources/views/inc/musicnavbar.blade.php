@@ -17,7 +17,7 @@
           <a class="nav-link" href="/music">music</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">video</a>
+          <a class="nav-link" href="/video">video</a>
         </li>
 
       </ul>

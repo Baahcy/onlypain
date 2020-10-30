@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Shop;
 use App\Subscriber;
+use App\Video;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,8 +13,12 @@ class DashboardController extends Controller
     {
         $shops = Shop::get();
         $subscribers = Subscriber::get();
+        $videos = Video::get();
 
-        return view('admin.dashboard')->with('shops', $shops)->with('subscribers',$subscribers);
+        return view('admin.dashboard')
+            ->with('shops', $shops)
+            ->with('subscribers', $subscribers)
+            ->with('videos', $videos);
     }
     /**
      * Display a listing of the resource.

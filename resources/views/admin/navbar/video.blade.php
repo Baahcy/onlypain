@@ -34,13 +34,13 @@
                         <p>Music</p>
                     </a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="/admin-newsletter">
                         <i class="material-icons">library_books</i>
                         <p>Newsletter</p>
                     </a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item active">
                     <a class="nav-link" href="/admin-video">
                         <i class="material-icons">shop</i>
                         <p>Video</p>
@@ -59,7 +59,7 @@
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:;">Newsletter</a>
+                    <a class="navbar-brand" href="javascript:;">Video</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                     aria-expanded="false" aria-label="Toggle navigation">

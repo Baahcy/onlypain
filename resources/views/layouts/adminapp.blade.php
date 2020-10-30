@@ -35,6 +35,10 @@
         @include('admin/navbar.shop')
     @elseif(Request::is('admin-music/create'))
         @include('admin/navbar.music')
+    @elseif(Request::is('admin-video'))
+        @include('admin/navbar.video')
+    @elseif(Request::is('admin-video/create'))
+        @include('admin/navbar.video')
     {{-- @elseif(Request::is('admin-shop/{{ $shop->id }}/edit'))
         @include('admin/navbar.shop') --}}
     @endif

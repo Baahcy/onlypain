@@ -31,6 +31,9 @@ Route::get('/shop', 'PagesController@getShopPage')->name('shoppage');
 
 Route::get('/subscribe', 'PagesController@getSubscribePage')->name('subscribepage');
 
+Route::get('/video', 'PagesController@getVideoPage')->name('videopage');
+
+
 
 // Dashboard Routes and Controller
 
@@ -51,3 +54,6 @@ Route::resource('/admin-music', 'MusicController');
 
 // Newsletter Route and Controller
 Route::get('/admin-newsletter', 'NewsletterController@getNewsletter')->name('newsletter');
+
+// Video Route and Controller
+Route::resource('/admin-video', 'VideoController');

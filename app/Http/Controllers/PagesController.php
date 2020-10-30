@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Music;
 use App\Shop;
+use App\Video;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -35,5 +36,11 @@ class PagesController extends Controller
     public function getSubscribePage()
     {
         return view('pages.subscribe');
+    }
+
+    public function getVideoPage()
+    {
+        $videos = Video::get();
+        return view('pages.videopage')->with('videos', $videos);
     }
 }

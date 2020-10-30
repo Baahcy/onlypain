@@ -40,6 +40,12 @@
                         <p>Newsletter</p>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/admin-video">
+                        <i class="material-icons">shop</i>
+                        <p>Video</p>
+                    </a>
+                </li>
 
 
 
