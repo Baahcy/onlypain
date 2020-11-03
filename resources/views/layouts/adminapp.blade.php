@@ -27,8 +27,8 @@
         @include('admin/navbar.shop')
     @elseif(Request::is('admin-music'))
         @include('admin/navbar.music')
-    @elseif(Request::is('admin-newsletter'))
-        @include('admin/navbar.newsletter')
+    {{-- @elseif(Request::is('admin-newsletter'))
+        @include('admin/navbar.newsletter') --}}
     @elseif(Request::is('admin-dashboard'))
         @include('admin/navbar.dashboard')
     @elseif(Request::is('admin-shop/create'))

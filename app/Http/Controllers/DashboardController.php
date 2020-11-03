@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Music;
 use App\Shop;
 use App\Subscriber;
 use App\Video;
@@ -14,10 +15,12 @@ class DashboardController extends Controller
         $shops = Shop::get();
         $subscribers = Subscriber::get();
         $videos = Video::get();
+        $musics = Music::get();
 
         return view('admin.dashboard')
             ->with('shops', $shops)
             ->with('subscribers', $subscribers)
+            ->with('musics', $musics)
             ->with('videos', $videos);
     }
     /**

@@ -13,6 +13,7 @@
                     <h4 class="card-title ">Music Table</h4>
                 </div>
                 <div class="card-body">
+                    @if (count($musics) > 0)
                     <div class="table-responsive">
                         <table class="table">
                             <thead class=" text-primary">
@@ -36,7 +37,7 @@
                                     <td>
                                         <button type="button" rel="tooltip" title="Edit music Item"
                                             class="btn btn-primary btn-link btn-sm">
-                                            <a href="/admin-video/{{$video->id}}/edit"><i
+                                            <a href="/admin-music/{{$music->id}}/edit"><i
                                                     class="material-icons">edit</i></a>
                                         </button>
 
@@ -52,6 +53,9 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                                @else
+                                <p style="text-align: center">No music data has been recorded yet!</p>
+                                @endif
 
                             </tbody>
                         </table>

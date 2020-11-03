@@ -9,13 +9,15 @@
                 <div class="card-header card-header-secondary">
                 </div>
                 <div class="card-header card-header-primary">
-                    <div>
+                    {{-- <div>
                         <a data-toggle="modal" data-target="#addModal" class="btn btn-primary float-right">Send News
                             Letter</a>
-                    </div>
+                    </div> --}}
                     <h4 class="card-title ">Subscibers Table</h4>
                 </div>
                 <div class="card-body">
+                    @if (count($subscribers) > 0)
+
                     <div class="table-responsive">
 
                         <!-- Modal -->
@@ -70,6 +72,9 @@
 
                                 </tr>
                                 @endforeach
+                                @else
+                                <p style="text-align: center">No subscriber data has been recorded yet!</p>
+                                @endif
 
                             </tbody>
                         </table>

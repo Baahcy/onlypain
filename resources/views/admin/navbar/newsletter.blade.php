@@ -34,12 +34,12 @@
                         <p>Music</p>
                     </a>
                 </li>
-                <li class="nav-item active">
+                {{-- <li class="nav-item active">
                     <a class="nav-link" href="/admin-newsletter">
                         <i class="material-icons">library_books</i>
                         <p>Newsletter</p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item ">
                     <a class="nav-link" href="/admin-video">
                         <i class="material-icons">shop</i>

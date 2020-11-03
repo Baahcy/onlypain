@@ -13,6 +13,7 @@
                     <h4 class="card-title ">Video Table</h4>
                 </div>
                 <div class="card-body">
+                    @if(count($videos) > 0)
                     <div class="table-responsive">
                         <table class="table">
                             <thead class=" text-primary">
@@ -49,6 +50,9 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                                @else
+                                <p style="text-align: center">No video data has been recorded yet!</p>
+                                @endif
 
                             </tbody>
                         </table>
