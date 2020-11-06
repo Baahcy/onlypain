@@ -29,8 +29,6 @@ Route::get('/music', 'PagesController@getMusicPage')->name('musicpage');
 
 Route::get('/shop', 'PagesController@getShopPage')->name('shoppage');
 
-Route::get('/subscribe', 'PagesController@getSubscribePage')->name('subscribepage');
-
 Route::get('/video', 'PagesController@getVideoPage')->name('videopage');
 
 
@@ -42,6 +40,14 @@ Route::get('/admin-dashboard', 'DashboardController@getDashboard')->name('dashbo
 
 // Subscriber Route and Controller
 Route::resource('/admin-subscriber', 'SubscriberController');
+
+Route::get('/subscribe', 'SubscriberController@getSubscribePage')->name('subscribepage');
+
+Route::get('/signup', 'SubscriberController@getSignupPage')->name('signuppage');
+
+Route::post('/signup', 'SubscriberController@getSignupPagestore')->name('signuppagestore');
+
+
 
 
 // Shop Route and Controller

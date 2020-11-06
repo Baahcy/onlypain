@@ -9,6 +9,36 @@ use Illuminate\Http\Request;
 
 class SubscriberController extends Controller
 {
+    public function getSubscribePage()
+    {
+        return view('subscriber.subscribe');
+    }
+
+    public function getSignupPage()
+    {
+        return view('subscriber.signup');
+    }
+
+    public function getSignupPagestore(Request $request)
+    {
+        $this->validate(
+            $request,
+            [
+                'name' => 'required',
+                'email' => 'required',
+
+            ]
+        );
+
+        $subscriber = new Subscriber();
+
+        $subscriber->name = $request->name;
+        $subscriber->email = $request->email;
+
+        $subscriber->save();
+
+        return redirect('/homepage')->with('success', 'You have subscribed successfully');
+    }
 
     /**
      * Display a listing of the resource.
@@ -39,59 +69,6 @@ class SubscriberController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'subject' => 'required',
-            'message' => 'required',
-
-        ]);
-
-        $newletters = new Newsletter([
-            'title' => $request->input('title'),
-            'subject' => $request->input('subject'),
-            'message' => $request->input('message'),
-
-        ]);
-
-
-        $subscribers = Subscriber::get();
-
-        $newletters->save();
-
-        foreach ($subscribers as $subscriber) {
-            $details = [
-                'name' => $subscriber->name,
-                'email' => $subscriber->email,
-                'title' => $newletters->title,
-                'subject' => $newletters->subject,
-                'message' => $newletters->message
-
-            ];
-
-            SendEmail::dispatchNow($details);
-        }
-        return redirect('admin-subscriber')->with('success', 'Newsletter Sent Successfully');
-
-
-
-
-        // foreach ($subscribers as $subscriber) {
-
-        //     $details = [
-        //         'name' => $subscriber->name,
-        //         'email' => $subscriber->email
-
-        //     ];
-
-        //       dd($details);
-        //       SendEmail::dispatchNow($details);
-
-        // };
-
-        // dd($subscriber);
-        // $subscriber->save();
-        // return redirect('admin-subscriber')->with('success', 'Newsletter Sent Successfully');
-
     }
 
     /**

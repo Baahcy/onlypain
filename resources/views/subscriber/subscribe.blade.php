@@ -33,34 +33,39 @@
 
                             <div class="card-deck mb-3 text-center">
                                 <div class="card mb-4 shadow-sm">
-                                  <div class="card-body">
-                                    <h1 class="card-title pricing-card-title">$30 <small class="text-muted">/ month</small></h1>
-                                    <ul class="list-unstyled mt-3 mb-4">
-                                      <li>get access to exlusive content</li>
-                                      <li>get personal messages from artist</li>
-                                      <li>get first access to exclusive merch</li>
-                                      <li>get exclusive access to unrealeased music</li>
-                                    </ul>
-                                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-                                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">No, Subscription</button>
+                                    <div class="card-body">
+                                        <h1 class="card-title pricing-card-title">$30 <small class="text-muted">/
+                                                month</small></h1>
+                                        <ul class="list-unstyled mt-3 mb-4">
+                                            <li>get access to exlusive content</li>
+                                            <li>get personal messages from artist</li>
+                                            <li>get first access to exclusive merch</li>
+                                            <li>get exclusive access to unrealeased music</li>
+                                        </ul>
+                                        <a href="/signup"><button type="button"
+                                                class="btn btn-lg btn-block btn-outline-primary">Sign up for free
+                                            </button></a>
+                                        <a href=""><button type="button"
+                                                class="btn btn-lg btn-block btn-outline-primary">No,
+                                                Subscription</button></a>
 
+                                    </div>
                                 </div>
-                                </div>
 
 
 
 
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
-@include('inc.footer')
-</body>
+    @include('inc.footer')
+    </body>
 
 </html>
