@@ -29,8 +29,13 @@ Route::get('/music', 'PagesController@getMusicPage')->name('musicpage');
 
 Route::get('/shop', 'PagesController@getShopPage')->name('shoppage');
 
-Route::get('/video', 'PagesController@getVideoPage')->name('videopage');
+Route::get('/payment', 'PagesController@getPaymentPage')->name('paymentpage');
 
+Route::post('/payment', 'PagesController@purchase')->name('stripe.payment');
+
+
+
+Route::get('/video', 'PagesController@getVideoPage')->name('videopage');
 
 
 // Dashboard Routes and Controller
@@ -63,3 +68,10 @@ Route::get('/admin-newsletter', 'NewsletterController@getNewsletter')->name('new
 
 // Video Route and Controller
 Route::resource('/admin-video', 'VideoController');
+
+// Stripe Route and Controller
+// Route::get('stripe-payment', 'StripeController@handleGet');
+// Route::post('stripe-payment', 'StripeController@handlePost')->name('stripe.payment');
+
+// Route::get('/payment', 'PaymentController@index');
+// Route::post('/payment', 'PaymentController@purchase')->name('stripe.payment');
