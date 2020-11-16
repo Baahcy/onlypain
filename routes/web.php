@@ -21,22 +21,12 @@ Auth::routes();
 
 // Client Routes
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/homepage', 'PagesController@getHomePage')->name('homepage');
-
-Route::get('/music', 'PagesController@getMusicPage')->name('musicpage');
-
-Route::get('/shop', 'PagesController@getShopPage')->name('shoppage');
-
-Route::get('/payment', 'PagesController@getPaymentPage')->name('paymentpage');
-
-Route::post('/payment', 'PagesController@purchase')->name('stripe.payment');
-
-
-
-Route::get('/video', 'PagesController@getVideoPage')->name('videopage');
-
+Route::get('/home', 'PagesController@index')->name('home');
+Route::get('/shop', 'PagesController@getShop')->name('shop');
+Route::get('/video', 'PagesController@getVideo')->name('video');
+Route::get('/music', 'PagesController@getMusic')->name('music');
 
 // Dashboard Routes and Controller
 

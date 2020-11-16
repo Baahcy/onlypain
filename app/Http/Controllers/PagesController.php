@@ -15,54 +15,46 @@ class PagesController extends Controller
         $this->middleware('auth');
     }
 
-    public function getHomePage()
+    public function index()
     {
-        return view('pages.homepage');
+        return view('pages.index');
     }
 
-    public function getMusicPage()
-    {
-        $musics = Music::get();
-        return view('pages.musicpage')->with('musics', $musics);
-    }
-
-    public function getShopPage()
+    public function getShop()
     {
         $shops = Shop::get();
-        return view('pages.shoppage')->with('shops', $shops);
+        return view('pages.shop')->with('shops', $shops);
     }
 
-    public function getPaymentPage(){
-        return view('pages.paymentpage');
-    }
-
-    public function purchase(Request $request)
+    public function getMusic()
     {
-
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        Stripe\Charge::create ([
-                "amount" => 100 * 25,
-                "currency" => "usd",
-                "source" => $request->stripeToken,
-                "description" => "This is new thanks"
-
-        ]);
-
-        // Session::flash('success', 'Payment has been successfully processed.');
-
-        // return back();
-
-        return redirect('/shop')->with('success', 'Payment has been successfully processed.');
+        $musics = Music::get();
+        return view('pages.music')->with('musics', $musics);
     }
 
-    public function getSubscribePage()
-    {
-        return view('pages.subscribe');
-    }
-
-    public function getVideoPage()
+    public function getVideo()
     {
         $videos = Video::get();
-        return view('pages.videopage')->with('videos', $videos);
+        return view('pages.video')->with('videos', $videos);
     }
+
+    // public function purchase(Request $request)
+    // {
+
+    //     Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    //     Stripe\Charge::create ([
+    //             "amount" => 100 * 25,
+    //             "currency" => "usd",
+    //             "source" => $request->stripeToken,
+    //             "description" => "This is new thanks"
+
+    //     ]);
+
+    //     // Session::flash('success', 'Payment has been successfully processed.');
+
+    //     // return back();
+
+    //     return redirect('/shop')->with('success', 'Payment has been successfully processed.');
+    // }
+
 }
