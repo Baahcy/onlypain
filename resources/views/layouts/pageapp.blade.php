@@ -28,7 +28,7 @@
 <br>
 
 <body class="container home">
-    @include('inc.navbarcontrol')
+    @include('inc/navbarcontrol/page')
 
     <div class="container">
         @yield('content')

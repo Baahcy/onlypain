@@ -65,3 +65,11 @@ Route::resource('/admin-video', 'VideoController');
 
 // Route::get('/payment', 'PaymentController@index');
 // Route::post('/payment', 'PaymentController@purchase')->name('stripe.payment');
+
+// Test Route and Controller
+
+// Route::resource('/admin-name', 'NameController');
+
+Route::get('admin-name', 'NameController@index');
+Route::get('admin-name/{name}/edit', 'NameController@edit');
+

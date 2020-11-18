@@ -23,6 +23,13 @@
    @include('inc/navbarcontrol/admin')
 
 
+
+
+
+
+
+   
+
     <div class="content">
         @include('inc.message')
         <div>

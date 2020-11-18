@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.shopeditapp')
 
 @section('content')
 <div class="container-fluid">
@@ -82,7 +82,7 @@
                         <div class="form-group">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary float-center">
-                                    {{ __('Update Event') }}
+                                    {{ __('Update ') }}
                                 </button>
                             </div>
                         </div>

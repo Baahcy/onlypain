@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.musiceditapp')
 
 @section('content')
 <div class="container-fluid">
