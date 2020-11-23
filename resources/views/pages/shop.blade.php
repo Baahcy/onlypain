@@ -18,8 +18,8 @@
                     </div>
 
                     <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                    <a href="/payment"> <button class="btn btn-primary float-right">purchase</button> </a>
+                    {{-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> --}}
+                    <a href="#"> <button class="btn btn-primary float-right">purchase</button> </a>
                 </div>
 
 
